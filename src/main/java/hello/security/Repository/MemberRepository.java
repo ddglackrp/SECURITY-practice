@@ -19,7 +19,7 @@ public class MemberRepository {
 
     @Transactional
     public Member save(Member member){
-        log.info("savedUser = {}", member);
+        log.info("savedUser = {}", member.getMemberName());
         em.persist(member);
         return member;
     }

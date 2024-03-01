@@ -50,8 +50,8 @@ public class homeController {
 
     @PostMapping("/join")
     public String join(@ModelAttribute Member member){
-        Member savedMember = memberService.join(member, bCryptPasswordEncoder.encode(member.getPassword()));
-        log.info("user = {}", savedMember);
+        log.info("member = {}", member.getMemberName());
+        memberService.join(member, bCryptPasswordEncoder.encode(member.getPassword()));
         return "redirect:/loginForm";
     }
 
