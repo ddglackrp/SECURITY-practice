@@ -52,7 +52,7 @@ public class homeController {
     public String join(@ModelAttribute Member member){
         Member savedMember = memberService.join(member, bCryptPasswordEncoder.encode(member.getPassword()));
         log.info("user = {}", savedMember);
-        return "redirect:/login";
+        return "redirect:/loginForm";
     }
 
     @Secured("ROLE_ADMIN")

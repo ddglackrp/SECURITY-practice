@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class MemberDetailsServiceImp implements UserDetailsService {
 
-    private final MemberRepository userRepository;
+    private final MemberRepository memberRepository;
 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Member memberEntity = userRepository.findByUserName(username);
+        Member memberEntity = memberRepository.findByMemberName(username);
         if(memberEntity != null){
             return new MemberDetailsImp(memberEntity);
         }

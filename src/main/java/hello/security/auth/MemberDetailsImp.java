@@ -36,7 +36,7 @@ public class MemberDetailsImp implements UserDetails {
 
     @Override
     public String getUsername() {
-        return member.getUsername();
+        return member.getMemberName();
     }
 
     @Override

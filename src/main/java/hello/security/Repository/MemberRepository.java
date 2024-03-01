@@ -24,9 +24,9 @@ public class MemberRepository {
         return member;
     }
 
-    public Member findByUserName(String userName){
-        List<Member> members = em.createQuery("select m from Member m where m.username = :name", Member.class)
-                .setParameter("name", userName)
+    public Member findByMemberName(String memberName){
+        List<Member> members = em.createQuery("select m from Member m where m.memberName = :name", Member.class)
+                .setParameter("name", memberName)
                 .getResultList();
 
         if(members.isEmpty()) return null;
