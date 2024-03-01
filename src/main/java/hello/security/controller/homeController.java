@@ -1,7 +1,7 @@
 package hello.security.controller;
 
-import hello.security.Service.UserService;
-import hello.security.domain.User;
+import hello.security.Service.MemberService;
+import hello.security.domain.Member;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.annotation.Secured;
@@ -19,7 +19,7 @@ public class homeController {
 
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    private final UserService userService;
+    private final MemberService memberService;
 
     @GetMapping({"","/"})
     public String home(){
@@ -49,9 +49,9 @@ public class homeController {
     }
 
     @PostMapping("/join")
-    public String join(@ModelAttribute User user){
-        User savedUser = userService.join(user, bCryptPasswordEncoder.encode(user.getPassword()));
-        log.info("user = {}",savedUser);
+    public String join(@ModelAttribute Member member){
+        Member savedMember = memberService.join(member, bCryptPasswordEncoder.encode(member.getPassword()));
+        log.info("user = {}", savedMember);
         return "redirect:/login";
     }
 

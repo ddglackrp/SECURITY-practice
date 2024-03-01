@@ -3,7 +3,7 @@ package hello.security.domain;
 import lombok.Data;
 
 @Data
-public class User {
+public class Member {
     private Long id;
     private String username;
     private String password;

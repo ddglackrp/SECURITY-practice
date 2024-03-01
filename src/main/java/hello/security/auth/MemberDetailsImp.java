@@ -2,19 +2,19 @@ package hello.security.auth;
 
 
 
-import hello.security.domain.User;
+import hello.security.domain.Member;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class UserDetailsImp implements UserDetails {
+public class MemberDetailsImp implements UserDetails {
 
-    private User user;
+    private Member member;
 
-    public UserDetailsImp(User user) {
-        this.user = user;
+    public MemberDetailsImp(Member member) {
+        this.member = member;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class UserDetailsImp implements UserDetails {
         collection.add(new GrantedAuthority() {
             @Override
             public String getAuthority() {
-                return user.getRole();
+                return member.getRole();
             }
         });
         return collection;
@@ -31,12 +31,12 @@ public class UserDetailsImp implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return member.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return member.getUsername();
     }
 
     @Override
